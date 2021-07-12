@@ -1,0 +1,6 @@
+http://dspace.daffodilvarsity.edu.bd:8080/handle/123456789/3722
+https://www.rand.org/research/projects/truth-decay/fighting-disinformation/search.html
+https://www.sciencedaily.com/releases/2019/12/191216122422.htm
+https://www.analyticsvidhya.com/blog/2020/01/3-important-nlp-libraries-indian-languages-python/
+https://www.researchgate.net/publication/341153118_Analyzing_Sentiment_of_Movie_Reviews_in_Bangla_by_Applying_Machine_Learning_Techniques
+http://dspace.daffodilvarsity.edu.bd:8080/handle/123456789/3722
