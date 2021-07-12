@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API2PYTHON.Interfaces;
+using API2PYTHON.Managers;
+using API2PYTHON.Models.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,8 +29,24 @@ namespace API2PYTHON
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {//-------------Database------------------
+
+            services.AddDbContext<AppDBContext>(options =>
+                                                        options.UseSqlServer(
+                                                        Configuration.GetConnectionString("DefaultConnection")));
+
+
+            services.AddScoped<IApiUrlMngr, ApiUrlMngr>();
+
+
+            services.AddLogging();
+            services.AddMvcCore(options => options.EnableEndpointRouting = false).AddAuthorization().AddNewtonsoftJson();
+
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -71,7 +91,7 @@ namespace API2PYTHON
 
             app.UseAuthorization();
 
-            //app.UseMvcWithDefaultRoute();
+            app.UseMvcWithDefaultRoute();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -89,8 +109,8 @@ namespace API2PYTHON
                 //c.IndexStream = () => GetType().Assembly.GetManifestResourceStream("TouchAntenna.Resources.SwaggerUI.index.html");
                 c.RoutePrefix = "help";
                 c.SwaggerEndpoint("v1/swagger.json", "Fake News Detection API");
-               // c.InjectStylesheet("../swagger-ui/custom.css");
-               // c.InjectJavascript("../swagger-ui/custom.js", "text/javascript");
+                c.InjectStylesheet("../swagger-ui/custom.css");
+                c.InjectJavascript("../swagger-ui/custom.js", "text/javascript");
                 c.DocumentTitle = "Fake News Detection API";
 
             });

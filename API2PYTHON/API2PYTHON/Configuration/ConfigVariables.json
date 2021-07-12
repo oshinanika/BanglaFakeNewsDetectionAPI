@@ -1,0 +1,11 @@
+{
+  /*Servers*/
+  "LIST_OF_SERVERS": {
+    //"VERIFID_API_SERVER": "http://192.168.20.218/verifid-api2/"
+    "VERIFID_API_SERVER": "http://192.168.20.192/VerifIDAPI/"
+  },
+  "BANK_NAME": "UBL",
+  "ERROR_LOG_PATH": "\\App_Resources\\Error_Logs\\",
+  "GOOGLE_VISION_API_CREDENTIALS_FILE_PATH": "F:\\AnikaOshin\\CODETRY\\VerifID-GITHUB\\VerifID\\VerifID_APIExt\\Configuration",
+  "IS_SECURED_EXT_CALL": "TRUE"
+}
