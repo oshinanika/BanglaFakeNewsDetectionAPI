@@ -55,7 +55,8 @@ namespace API2PYTHON.Controllers
             }).ToArray();
             status.Status = "OK";
             status.Message = "Got result";
-            status.Result = Convert.ToString(response);
+            status.Result = "\u0436\u0430\u0440\u043A\u043E";
+            //status.Result = Convert.ToString(response);
 
             return Ok(status);
         }
