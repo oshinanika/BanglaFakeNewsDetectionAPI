@@ -1,0 +1,9 @@
+import base64
+import os
+from pathlib import Path
+from PIL import Image
+
+
+fh = open(Path(r'C:\\inetpub\wwwroot\\VerifIDML\\mlapp\\static\\cp01811448068\\cust_photos\\uploaded.png)', "rb")
+encoded_from_nid = base64.b64encode(fh.read()).decode('utf-8')
+fh.close()
