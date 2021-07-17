@@ -1,0 +1,78 @@
+﻿@*@page
+@model BanglaFakeNewsDetectionApp.Areas.Identity.Pages.FakeNewsApi.IndexModel
+@{
+}*@
+
+
+@page
+@model BanglaFakeNewsDetectionApp.Areas.Identity.Pages.FakeNewsApi.IndexModel
+
+@{ViewData["Title"] = "APIS";}
+
+
+@{
+    Layout = "~/Areas/Identity/Pages/_APILayout.cshtml";
+}
+<div class="col-md-10 offset-1">
+    <div class="login-form-icon">
+        @*<i class="fas fa-user-circle fa-9x text-secondary"></i>*@
+        <i class="fab fa-searchengin fa-9x text-secondary"></i>
+    </div>
+    <form id="account" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="far fa-newspaper"></i>
+                    </div>
+                </div>
+                <textarea asp-for="News.newsCon" class="form-control" placeholder="News Content"></textarea>
+                @*<textarea asp-for="Data" class="form-control"></textarea>*@
+            </div>
+
+            @*<span asp-validation-for="Input.Email" class="text-danger"></span>*@
+        </div>
+        @*<div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+            </div>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label asp-for="Input.RememberMe">
+                    <input asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Process</button>
+        </div>
+        <div>
+            <div class="form-group">
+                <div class="form-group">
+                    @*<label>@Model.result</label>*@
+                    @*<h3 font-weight-bold>Fake News Detection Predictions with Epoch</h3>*@
+                    @*<div class="display-2 font-weight-bold">@Model.result</div>*@
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold card-title">@Model.heading</h5>
+                            <p class="display-2 card-text">@Model.result</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}
