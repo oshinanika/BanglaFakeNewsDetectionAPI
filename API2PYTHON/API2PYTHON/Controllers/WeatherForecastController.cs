@@ -11,7 +11,8 @@ namespace API2PYTHON.Controllers
 {
     //[ApiKey]   //the attribute we created in services/utility
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
