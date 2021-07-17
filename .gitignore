@@ -431,3 +431,9 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+BanFakeNewsDataset/BanFakeNews/Authentic-48K.csv
+BanFakeNewsDataset/BanFakeNews/BanFakeNews_df_clean_joined.csv
+BanFakeNewsDataset/BanFakeNews/Fake-1K.csv
+BanFakeNewsDataset/BanFakeNews/BanFakeNews_df_clean_joined50-50.csv
+fnd.py
+FakeNewsDetection using BanFakeNews-Coursera.ipynb
